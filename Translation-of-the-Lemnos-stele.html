@@ -1,4 +1,11 @@
-<header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translation of the Lemnos Stele</title>
+    
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-49WKN3NH9J"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -6,67 +13,250 @@
       gtag('js', new Date());
       gtag('config', 'G-49WKN3NH9J');
     </script>
-</header>
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --primary-color: #2c3e50;
+            --accent-color: #8b0000;
+            --text-color: #333333;
+            --text-muted: #6c757d;
+            --border-color: #e9ecef;
+            --highlight-bg: #f4f1ea;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.7;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        header h1 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 15px;
+        }
+
+        .description {
+            font-size: 1.05rem;
+            color: var(--text-color);
+            margin-bottom: 30px;
+        }
+
+        .description a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .description a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Image Container */
+        .stele-image-container {
+            text-align: center;
+            margin: 30px 0 40px 0;
+        }
+
+        .stele-image-container img {
+            max-width: 280px;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border: 1px solid var(--border-color);
+        }
+
+        /* Original Transliteration Blocks */
+        .inscription-block {
+            background-color: var(--highlight-bg);
+            border-left: 4px solid var(--accent-color);
+            padding: 20px 25px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 35px;
+        }
+
+        .inscription-block h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            margin-top: 0;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .inscription-text {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            margin-bottom: 12px;
+        }
+
+        .inscription-text:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Language Sections */
+        .translation-section {
+            margin-top: 40px;
+        }
+
+        .translation-section h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            margin-bottom: 25px;
+        }
+
+        .section-badge {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        /* Styled List Items */
+        .translation-list {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 30px;
+        }
+
+        .translation-list li {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 12px 18px;
+            margin-bottom: 10px;
+            font-size: 0.98rem;
+        }
+
+        .translation-list li code {
+            font-family: 'Georgia', serif;
+            font-weight: bold;
+            color: var(--accent-color);
+            background: rgba(139, 0, 0, 0.05);
+            padding: 2px 6px;
+            border-radius: 4px;
+            margin-right: 8px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            body {
+                padding: 15px 10px;
+            }
+            .container {
+                padding: 20px;
+            }
+            header h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
 <body>
-<h1>
-Translation of the Lemnos Stele
-</h1>
 
+<div class="container">
+    <header>
+        <h1>Translation of the Lemnos Stele</h1>
+    </header>
 
+    <p class="description">
+        The Lemnos Stele is a monument with an inscription in the Lemnian language. This translation was compiled from two previous translations: by <a href="https://www.craig-galt.info/front-page/alexander-grant-papers/translation-of-the-lemnos-stele/" target="_blank">Alexander Grant (Aleksandras Pridatkas) in 1973–1976</a> and by <a href="https://books.google.com/books?id=B6PFuA_pJCYC" target="_blank">G. Kleinschmidt in 1893</a> (<em>Zwei lemnische Inschriften: Übersetzt und erklärt von G. Kleinschmidt</em>; Separatabdruck aus Heft III der Zeitschrift des Insterburger Alterthumsvereins). This translation is based on the Proto-Balto-Slavic language.
+    </p>
 
-<p>
-The Lemnos Stele is a monument with an inscription in the Lemnian language. This translation was compiled from two previous translations, by <a href="https://www.craig-galt.info/front-page/alexander-grant-papers/translation-of-the-lemnos-stele/">Alexander Grant (Aleksandras Pridatkas) in 1973–1976 </a> and by <a href="https://books.google.com/books?id=B6PFuA_pJCYC">G.Kleinschmidt in 1893, the book is Zwei lemnische Inschriften: Übersetzt und erklärt von G. Kleinschmidt; Separatabdruck aus Heft III der Zeitschrift des Insterburger Alterthumsvereins.</a> Translation is based on Proto-Balto-Slavic language.
-</p>
-  <img src="https://figures.academia-assets.com/31985094/figure_003.jpg" style="width:20%;" alt="The Lemnos Stele">
-<p>
-The Lemnos Stelle
-Front text: holaies naφoθ[š] siasi marasm nav šialχveis avis evišθo seronaiθ sivai aker tavarsio vamala šial seronai morinail
-Side text: holaiesi φokiašiale seronaiθ evišθo toverona […]rom haralio sivai eptesio arai tis φoke sivai avis šialχvis marasm avis aomai
-</p>
+    <div class="stele-image-container">
+        <img src="./Translation-of-the-Lemnos-stele_files/figure_003.jpg" alt="The Lemnos Stele Monument">
+    </div>
 
-<p>
-In Lithuanian
-</p>
-<p>
-a)
-</p>
-<ul>
-<li>holaie z naφoθ ziazi () / LT. Gulėjęs (guli) nabutis (nabagas) čia esi.</li>
-<li>maraz nav / LT. Maras (miręs) naujas.</li>
-<li>sialχveiz aviz / LT. 60 Eivis (ajis,eivis,ėjęs).</li>
-<li>evisθo zeronaiθ / LT. vištos žėronas (višta žėrunas, vištakas, vištakumas).</li>
-<li>zivai / LT. gyvas</li>
-<li>aker tavarzio / LT. Akertės tavarčystė (tavarščio).</li>
-<li>vam(n)alasial zeronai mo(u)rinail / LT. vėmalai šalia žėrūna(žerėjo) mirė(morė).</li>
-</ul>
-b)
-<ul>
-<li>zivai aviz sialχviz marazm aviz(s) aomai / LT. Gyvas Ajis/Eivis 60 miręs(maras, miręsm) Ajis/Eivis Jonijoj (Ἰωνία/Ἰωνίη/Iōnía/Iōníē)</li>
-<li>ro(u)m haralio(u) zivai eptezio(u) arai tiz φoke / LT. Rūna(rona/įrėžta) Karalio gyvo Eptesio/Hippias yra iš Phokea (Phokaia/Phokaea/Phokis/Phocis).</li>
-<li>ho(u)laiezi φo(u)kiasiale zeronaiθ evisθo(u) to(u)vero(u)na / LT. Gula(guli,guliesi,gulasi) Phoke šalies žėronas vištos touv-rona (touveik rona).</li>
-</ul>
-<p>
-In English
-</p>
-<p>
-a)
-</p>
-<ul>
-<li>Here is the miserable man lying down.</li>
-<li>Just(recently) dead.</li>
-<li>60 going(ongoing; maybe 60 years ongoing).</li>
-<li>Blind.</li>
-<li>Have lived.</li>
-<li>Near the aperture.</li>
-<li>The vomit was visible next to the dead.</li>
-</ul>
-<p>
-b)
-</p>
-<ul>
-<li>Here were going 60. Died in Ionia.</li>
-<li>The picture of live king Hippias. Is from Phokea.</li>
-<li>Lying down. Phokea side(country). Blind. In previous picture.</li>
-</ul>
+    <div class="inscription-block">
+        <h2>Original Inscription Text</h2>
+        <p class="inscription-text">
+            <strong>Front text:</strong> holaies naφoθ[š] siasi marasm nav šialχveis avis evišθo seronaiθ sivai aker tavarsio vamala šial seronai morinail
+        </p>
+        <p class="inscription-text">
+            <strong>Side text:</strong> holaiesi φokiašiale seronaiθ evišθo toverona […]rom haralio sivai eptesio arai tis φoke sivai avis šialχvis marasm avis aomai
+        </p>
+    </div>
+
+    <!-- Lithuanian Translation Section -->
+    <section class="translation-section">
+        <h2>In Lithuanian</h2>
+
+        <span class="section-badge">a)</span>
+        <ul class="translation-list">
+            <li><code>holaie z naφoθ ziazi ()</code> LT. Gulėjęs (guli) nabutis (nabagas) čia esi.</li>
+            <li><code>maraz nav</code> LT. Maras (miręs) naujas.</li>
+            <li><code>sialχveiz aviz</code> LT. 60 Eivis (ajis, eivis, ėjęs).</li>
+            <li><code>evisθo zeronaiθ</code> LT. vištos žėronas (višta žėrunas, vištakas, vištakumas).</li>
+            <li><code>zivai</code> LT. gyvas</li>
+            <li><code>aker tavarzio</code> LT. Akertės tavarčystė (tavarščio).</li>
+            <li><code>vam(n)alasial zeronai mo(u)rinail</code> LT. vėmalai šalia žėrūna (žerėjo) mirė (morė).</li>
+        </ul>
+
+        <span class="section-badge">b)</span>
+        <ul class="translation-list">
+            <li><code>zivai aviz sialχviz marazm aviz(s) aomai</code> LT. Gyvas Ajis/Eivis 60 miręs (maras, miręsm) Ajis/Eivis Jonijoj (Ἰωνία / Ἰωνίη / Iōnía / Iōníē)</li>
+            <li><code>ro(u)m haralio(u) zivai eptezio(u) arai tiz φoke</code> LT. Rūna (rona / įrėžta) Karalio gyvo Eptesio/Hippias yra iš Phokea (Phokaia / Phokaea / Phokis / Phocis).</li>
+            <li><code>ho(u)laiezi φo(u)kiasiale zeronaiθ evisθo(u) to(u)vero(u)na</code> LT. Gula (guli, guliesi, gulasi) Phoke šalies žėronas vištos touv-rona (touveik rona).</li>
+        </ul>
+    </section>
+
+    <!-- English Translation Section -->
+    <section class="translation-section">
+        <h2>In English</h2>
+
+        <span class="section-badge">a)</span>
+        <ul class="translation-list">
+            <li>Here is the miserable man lying down.</li>
+            <li>Just (recently) dead.</li>
+            <li>60 going (ongoing; maybe 60 years ongoing).</li>
+            <li>Blind.</li>
+            <li>Have lived.</li>
+            <li>Near the aperture.</li>
+            <li>The vomit was visible next to the dead.</li>
+        </ul>
+
+        <span class="section-badge">b)</span>
+        <ul class="translation-list">
+            <li>Here were going 60. Died in Ionia.</li>
+            <li>The picture of live king Hippias. Is from Phokea.</li>
+            <li>Lying down. Phokea side (country). Blind. In previous picture.</li>
+        </ul>
+    </section>
+</div>
+
 </body>
+</html>
