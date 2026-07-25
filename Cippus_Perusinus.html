@@ -1,1 +1,490 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translation & Decipherment of the Cippus Perusinus</title>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-49WKN3NH9J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-49WKN3NH9J');
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-canvas: #f4f6f8;
+            --surface-card: #ffffff;
+            --primary-navy: #1e293b;
+            --accent-crimson: #8b1e0f;
+            --accent-crimson-soft: rgba(139, 30, 15, 0.05);
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --border-subtle: #e2e8f0;
+            --highlight-box: #fdfbf7;
+            
+            /* Language Tag Colors */
+            --tag-lt-bg: #e0f2fe; --tag-lt-fg: #0369a1;
+            --tag-lv-bg: #dcfce7; --tag-lv-fg: #15803d;
+            --tag-ru-bg: #ffe4e6; --tag-ru-fg: #be123c;
+            --tag-punic-bg: #f3e8ff; --tag-punic-fg: #6b21a8;
+            
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 30px rgba(0,0,0,0.06);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-canvas);
+            color: var(--text-primary);
+            line-height: 1.7;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--surface-card);
+            padding: 50px 45px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-subtle);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-navy);
+            font-size: 2.4rem;
+            margin: 0 0 12px 0;
+            letter-spacing: -0.5px;
+        }
+
+        .header-divider {
+            width: 80px;
+            height: 3px;
+            background: var(--accent-crimson);
+            margin: 0 auto 25px auto;
+            border-radius: 2px;
+        }
+
+        .description {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            text-align: left;
+            max-width: 780px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Hero Image Layout */
+        .artifact-hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 35px;
+        }
+
+        .image-card {
+            background: #fafafa;
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .image-card img {
+            max-width: 100%;
+            height: auto;
+            max-height: 320px;
+            border-radius: 6px;
+        }
+
+        .image-card figcaption {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        /* External Link Box */
+        .external-links {
+            background-color: var(--highlight-box);
+            border: 1px solid #f1e5d1;
+            border-left: 4px solid var(--accent-crimson);
+            padding: 14px 20px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            margin-bottom: 40px;
+            color: var(--text-secondary);
+        }
+
+        .external-links a {
+            color: var(--accent-crimson);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .external-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Section Headers */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-navy);
+            font-size: 1.6rem;
+            border-bottom: 2px solid var(--border-subtle);
+            padding-bottom: 10px;
+            margin-top: 45px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .side-badge {
+            background: var(--primary-navy);
+            color: #ffffff;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 12px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        /* Comparative Analysis List */
+        .analysis-list {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 30px;
+        }
+
+        .analysis-item {
+            background: var(--surface-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin-bottom: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.15s ease, border-color 0.15s ease;
+        }
+
+        .analysis-item:hover {
+            border-color: #cbd5e1;
+            transform: translateY(-1px);
+        }
+
+        .etruscan-text {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--accent-crimson);
+            background: var(--accent-crimson-soft);
+            padding: 4px 10px;
+            border-radius: 6px;
+            display: inline-block;
+            width: fit-content;
+            letter-spacing: 0.5px;
+        }
+
+        .linguistic-note {
+            color: var(--text-primary);
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+
+        .code-root {
+            font-family: monospace;
+            background: #f1f5f9;
+            color: var(--primary-navy);
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        /* Linguistic Tags */
+        .lang-tag {
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 2px 7px;
+            border-radius: 4px;
+            margin-right: 4px;
+            letter-spacing: 0.5px;
+            display: inline-block;
+        }
+
+        .lang-lt { background: var(--tag-lt-bg); color: var(--tag-lt-fg); }
+        .lang-lv { background: var(--tag-lv-bg); color: var(--tag-lv-fg); }
+        .lang-ru { background: var(--tag-ru-bg); color: var(--tag-ru-fg); }
+        .lang-punic { background: var(--tag-punic-bg); color: var(--tag-punic-fg); }
+
+        /* Translation Cards */
+        .translation-card {
+            background-color: var(--highlight-box);
+            border-left: 4px solid var(--accent-crimson);
+            border-top: 1px solid #f1e5d1;
+            border-right: 1px solid #f1e5d1;
+            border-bottom: 1px solid #f1e5d1;
+            padding: 24px 28px;
+            border-radius: 0 12px 12px 0;
+            margin-top: 25px;
+            margin-bottom: 40px;
+        }
+
+        .translation-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--primary-navy);
+            margin-top: 0;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .translation-card p {
+            margin: 0;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #24292f;
+        }
+
+        /* Historical Conclusion Banner */
+        .conclusion-box {
+            background: linear-gradient(135deg, var(--primary-navy) 0%, #0f172a 100%);
+            color: white;
+            padding: 30px 35px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 50px;
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.15);
+        }
+
+        .conclusion-box h2 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+            color: #f8fafc;
+        }
+
+        .conclusion-box p {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            font-weight: 300;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 640px) {
+            body {
+                padding: 16px 10px;
+            }
+            .container {
+                padding: 25px 20px;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+            .section-title {
+                font-size: 1.3rem;
+            }
+            .translation-card {
+                padding: 18px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Translation of Cippus Perusinus</h1>
+        <div class="header-divider"></div>
+        <p class="description">
+            The <strong>Cippus Perusinus</strong> is a stone tablet (cippus) discovered on the hill of San Marco, in Perugia, Italy, in 1822. It features a long inscription engraved on a boundary stone containing legal and territorial terms.
+        </p>
+    </header>
+
+    <div class="artifact-hero">
+        <figure class="image-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Nadpis_Perujia.png" alt="Cippus Perusinus stone tablet inscription">
+            <figcaption>The Cippus Perusinus boundary stone</figcaption>
+        </figure>
+    </div>
+
+    <div class="external-links">
+        <strong>Linguistic References:</strong> All mentioned Lithuanian, Latvian, and Russian root words can be verified via dictionary resources at <a href="https://ekalba.lt/" target="_blank">ekalba.lt</a> and <a href="https://translate.google.com/" target="_blank">Google Translate</a>.
+    </div>
+
+    <!-- FRONT SIDE ANALYSIS -->
+    <div class="section-title">
+        <span>Front Inscription</span>
+        <span class="side-badge">Front Side</span>
+    </div>
+
+    <ul class="analysis-list">
+        <li class="analysis-item">
+            <span class="etruscan-text">… VELθINA SIA ŠATENE</span>
+            <div class="linguistic-note">— <span class="lang-tag lang-lt">LT</span> Valdina, Valdinėti, Valdinti; <span class="lang-tag lang-lt">LT</span> Šia; <span class="lang-tag lang-lt">LT</span> Satnus, Sutinęs.</div>
+        </li>
+        <li class="analysis-item">
+            <span class="etruscan-text">TESNE. ECA. VELθINA θURAŠ θ</span>
+            <div class="linguistic-note">— <span class="lang-tag lang-lt">LT</span> Teisnus, Teismas; <span class="lang-tag lang-lt">LT</span> Ekas; <span class="lang-tag lang-lt">LT</span> Valdina; <span class="lang-tag lang-lt">LT</span> Turinti, Turėti; <span class="lang-tag lang-lt">LT</span> Tau.</div>
+        </li>
+        <li class="analysis-item">
+            <span class="etruscan-text">AURA HELU TESNE RAŠNE CEI</span>
+            <div class="linguistic-note">— <span class="lang-tag lang-lt">LT</span> Rašalas, Rašelis, Rašyti, <span class="lang-tag lang-lv">LV</span> Rakstīt; <span class="code-root">RAŠNE</span> = <span class="lang-tag lang-lt">LT</span> Rasiai, Rasininkai, Rašnikiai = Etruscans.</div>
+        </li>
+        <li class="analysis-item">
+            <span class="etruscan-text">TESNŠ TEIŠ RAŠNEŠ XIMTHŠP</span>
+            <div class="linguistic-note">— <span class="lang-tag lang-lt">LT</span> Teisnus, Teismas; <span class="code-root">RAŠNE</span> = <span class="lang-tag lang-lt">LT</span> Rasiai, Rasininkai, Rašnikiai = Etruscans; <span class="lang-tag lang-lt">LT</span> Šimtas, Šimptspel <em>(example of singular allative)</em> = of one hundred.</div>
+        </li>
+        <li class="analysis-item">
+            <span class="etruscan-text">EL THUTA ŠCUNA AFUNA MENA</span>
+            <div class="linguistic-note">— <span class="lang-tag lang-lt">LT</span> Tauta; <span class="lang-tag lang-lt">LT</span> Škūnia; <span class="code-root">AFUNA</span> = <span class="lang-tag lang-punic">PUNIC</span> Phoenician; <span class="code-root">MENAHEN</span> = Mainake, Menake, Menace.</div>
+        </li>
+        <li class="analysis-item">
+            <span class="etruscan-text">HEN. NAPER. CI CNL HARE UTUŠE</span>
+            <div class="linguistic-note">— <span class="lang-tag lang-lt">LT</span> Nuperka, Nupirkti, <span class="lang-tag lang-lv">LV</span> Pērk; <span class="lang-tag lang-lt">LT</span> Čia; <span class="lang-tag lang-lt">LT</span> Klonė, Klonis, Kolonija; <span class="code-root">HAREUTUŠE</span> = Arezzo, Arretium.</div>
+        </li>
+    </ul>
+
+    <div class="translation-card">
+        <h3>English Translation (Front Side)</h3>
+        <p>
+            The Ruler (or Vetulonia) saturated with justice (or court).<br>
+            Ruler writes a law for you, for Etruscans.<br>
+            The judge adjudicates in front of 100 Etruscans tribe. The palisade of Mainake the Punic acquire.<br>
+            Here, the colony Arezzo.
+        </p>
+    </div>
+
+    <!-- SIDE INSCRIPTION ANALYSIS -->
+    <div class="section-title">
+        <span>Side Inscription</span>
+        <span class="side-badge">Side Inscription</span>
+    </div>
+
+    <ul class="analysis-list">
+        <li class="analysis-item">
+            <span class="etruscan-text">…VELθINAś</span>
+            <div class="linguistic-note">— <span class="lang-tag lang-lt">LT</span> Valdina, Valdinėti, Valdinti, Valdovas.</div>
+        </li>
+        <li class="analysis-item">
+            <span class="etruscan-text">ATENA ZUC</span>
+            <div class="linguistic-note">— <span class="lang-tag lang-lv">LV</span> Atēna, Atēnot, <span class="lang-tag lang-ru">RU</span> Оттенок; <span class="lang-tag lang-lt">LT</span> Sakyti, Sako, Įsako, <span class="lang-tag lang-lv">LV</span> Saka, Saki.</div>
+        </li>
+        <li class="analysis-item">
+            <span class="etruscan-text">I ENESCI. I</span>
+            <div class="linguistic-note">— <span class="lang-tag lang-lt">LT</span> Įneški, Įnešti.</div>
+        </li>
+        <li class="analysis-item">
+            <span class="etruscan-text">PA śPELANE</span>
+            <div class="linguistic-note">— <span class="lang-tag lang-lv">LV</span> Īpašums, Īpašs, Īpašums; <span class="lang-tag lang-lv">LV</span> Spelaneti, <span class="lang-tag lang-lt">LT</span> Spelčius.</div>
+        </li>
+        <li class="analysis-item">
+            <span class="etruscan-text">θI. FULUMχ</span>
+            <div class="linguistic-note">— <span class="lang-tag lang-lv">LV</span> Te, <span class="lang-tag lang-lt">LT</span> Ten; <span class="lang-tag lang-lt">LT</span> Paluomu.</div>
+        </li>
+        <li class="analysis-item">
+            <span class="etruscan-text">VA. śPELθI.</span>
+            <div class="linguistic-note">— <span class="lang-tag lang-lv">LV</span> Spelaneti, <span class="lang-tag lang-lt">LT</span> Spelčius.</div>
+        </li>
+        <li class="analysis-item">
+            <span class="etruscan-text">RENEθI. EśT</span>
+            <div class="linguistic-note">— <span class="lang-tag lang-lt">LT</span> Renėti; <span class="lang-tag lang-lt">LT</span> Esti.</div>
+        </li>
+        <li class="analysis-item">
+            <span class="etruscan-text">AC VELθINA</span>
+            <div class="linguistic-note">— <span class="lang-tag lang-lt">LT</span> Ak, Iki; <span class="code-root">VELθINA</span> = Vetulonia.</div>
+        </li>
+        <li class="analysis-item">
+            <span class="etruscan-text">AC ILUNE.</span>
+            <div class="linguistic-note">— <span class="lang-tag lang-lt">LT</span> Ak, Iki; <span class="code-root">ILUNE</span> = Cala Luna, Codula Ilune.</div>
+        </li>
+        <li class="analysis-item">
+            <span class="etruscan-text">TURUNEśC</span>
+            <div class="linguistic-note">— <span class="lang-tag lang-lt">LT</span> Tirėnų, Tyrūniškė, <span class="code-root">TURUNESC</span> = Tyrrhenian sea.</div>
+        </li>
+        <li class="analysis-item">
+            <span class="etruscan-text">UNE ZEA. ZUC</span>
+            <div class="linguistic-note">— <span class="lang-tag lang-lt">LT</span> Jauna, <span class="lang-tag lang-ru">RU</span> Юный; <span class="lang-tag lang-lt">LT</span> Sėja, <span class="lang-tag lang-lv">LV</span> Sēju; <span class="lang-tag lang-lt">LT</span> Sakyti, Sako, Įsako, <span class="lang-tag lang-lv">LV</span> Saka, Saki.</div>
+        </li>
+        <li class="analysis-item">
+            <span class="etruscan-text">I ENESCIL. Aθ</span>
+            <div class="linguistic-note">— <span class="lang-tag lang-lt">LT</span> Įneški, Įnešti; <span class="lang-tag lang-lt">LT</span> Adamantas, Deimantas.</div>
+        </li>
+        <li class="analysis-item">
+            <span class="etruscan-text">IMICś. AFU NAś. PENθN</span>
+            <div class="linguistic-note">— <span class="code-root">AFUNA</span> = <span class="lang-tag lang-punic">PUNIC</span> Phoenician; <span class="lang-tag lang-lt">LT</span> Penėti, Pentėti, Pentis, Pendinti, Pendina.</div>
+        </li>
+        <li class="analysis-item">
+            <span class="etruscan-text">A. AMA. VELθINA. AFUN</span>
+            <div class="linguistic-note">— <span class="lang-tag lang-lt">LT</span> Mano, Mūsų, Ama; <span class="code-root">VELθINA</span> = Vetulonia; <span class="code-root">AFUNA</span> = <span class="lang-tag lang-punic">PUNIC</span> Phoenician.</div>
+        </li>
+        <li class="analysis-item">
+            <span class="etruscan-text">ZERIUNA. CL</span>
+            <div class="linguistic-note">— <span class="lang-tag lang-lt">LT</span> Žiūra, Priežiūra, Žėri, Žirantas, Žiurantas; <span class="lang-tag lang-lv">LV</span> Klāties, Klātiene, <span class="lang-tag lang-ru">RU</span> клянусь.</div>
+        </li>
+        <li class="analysis-item">
+            <span class="etruscan-text">A θILθUNχ</span>
+            <div class="linguistic-note">— <span class="lang-tag lang-lt">LT</span> Dildunkis, Dildė.</div>
+        </li>
+        <li class="analysis-item">
+            <span class="etruscan-text">ULθL. Iχ. CA</span>
+            <div class="linguistic-note">— <span class="lang-tag lang-lt">LT</span> Uldyti, Ulduoti; <span class="lang-tag lang-lt">LT</span> Iškakėti, Iškakšdėti.</div>
+        </li>
+        <li class="analysis-item">
+            <span class="etruscan-text">CEχA. ZIχUχ E</span>
+            <div class="linguistic-note">— <span class="lang-tag lang-lt">LT</span> Žičkuoti, Žičkuotai, Žičkus.</div>
+        </li>
+    </ul>
+
+    <div class="translation-card">
+        <h3>English Translation (Side Inscription)</h3>
+        <p>
+            The Ruler highlights and orders to bring property pillars there.<br>
+            The row of pillars is erected up to Vetulonia, up to Ilune in Tyrrhenian sea.<br>
+            New sowing (or land) brings Punic diamonds and nourishes to our Ruler (or Vetulonia).<br>
+            Punic Ruler looks after covenant. The rasp talking.<br>
+            The bottom reached.<br>
+            The conclusion.
+        </p>
+    </div>
+
+    <!-- CONCLUSION SUMMARY -->
+    <div class="conclusion-box">
+        <h2>Historical Conclusion</h2>
+        <p>It seems that Cippus Perusinus is a Peace Treaty between the Etruscans and Phoenicians.</p>
+    </div>
+</div>
+
+</body>
+</html>
