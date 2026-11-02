@@ -10,5 +10,8 @@ The Etruscans created a civilization in Etruria in ancient Italy.
 
 <p> <a href="https://townames.github.io/Rasnal/Cippus_Perusinus.html" target="_self">Translation of Cippus Perusinus</a>
 </p>
+
+<p> <a href="https://townames.github.io/Rasnal/Dictionary.html" target="_self">Small dictionary of Etruscan language</a>
+</p>
  
 </p>
